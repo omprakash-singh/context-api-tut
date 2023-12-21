@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useState } from "react";
+import React, { ReactNode, createContext, useEffect, useState } from "react";
 interface DefaultValue {
   count: number;
   name: string;
@@ -18,6 +18,10 @@ interface MyContextProviderProps {
 export const Context: React.FC<MyContextProviderProps> = ({ children }) => {
   const [count, setCount] = useState<number>(0);
   const [name, setName] = useState<string>("");
+
+  useEffect(() => {
+    setName("Omprakash singh");
+  }, []);
 
   const handleCounter = () => {
     setCount((prev) => prev + 1);
